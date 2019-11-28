@@ -1,6 +1,6 @@
 package main
 
-import "fmt"
+import "log"
 
 // Node : struct
 type Node struct {
@@ -23,7 +23,7 @@ func NewNode(data int) *Node {
 // count length of list
 func ListLength(head *Node) (count int) {
 	var current *Node
-	count = 1
+	count = 0
 	current = head
 	for current.next != nil {
 		count++
@@ -36,14 +36,30 @@ func ListLength(head *Node) (count int) {
 //
 // insert new node to head at posistion
 func InsertNodeAtPos(head **Node, data int, pos int) {
-	var newNode *Node
+	var (
+		newNode *Node
+		p       *Node
+		q       *Node
+		k       int
+	)
 	newNode = &Node{
 		data: data,
 		next: nil,
 	}
+	p = *head
 	if pos == 0 {
-		newNode.next = *head
+		newNode.next = p
 		*head = newNode
+
+	} else {
+		for k < pos && p != nil {
+			k++
+			q = p
+			p = p.next
+		}
+
+		q.next = newNode
+		newNode.next = p
 	}
 }
 
@@ -57,8 +73,11 @@ func main() {
 	// Insert a node at beginning
 	InsertNodeAtPos(&head, 1, 0)
 
+	// Insert a node at custom pos
+	InsertNodeAtPos(&head, 3, 1)
+
 	// Count the list
 	count := ListLength(head)
-	fmt.Println(count)
+	log.Println(count)
 
 }
