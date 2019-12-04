@@ -22,6 +22,9 @@ func NewNode(data int) *Node {
 //
 // count length of list
 func ListLength(head *Node) (count int) {
+	if head == nil {
+		return 0
+	}
 	var current *Node
 	count = 1
 	current = head
@@ -95,6 +98,20 @@ func DeleteNode(head **Node, pos int) {
 	}
 }
 
+// DeleteListOfNode : head
+//
+// delete list of node
+func DeleteListOfNode(head **Node) {
+	var p, q *Node
+	p = *head
+	for p.next != nil {
+		q = p.next
+		p = nil
+		p = q
+	}
+	*head = nil
+}
+
 func main() {
 	var head *Node
 	head = &Node{
@@ -129,6 +146,10 @@ func main() {
 	count = ListLength(head)
 	log.Println(count)
 
+	// Delete all nodes
+	DeleteListOfNode(&head)
+	count = ListLength(head)
+	log.Println(count)
 }
 
 func buildNodeList(head **Node) {
