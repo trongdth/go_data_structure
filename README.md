@@ -1,1 +1,3 @@
-# go_data_structure
+# go_practise
+
+- This repos contains what I practise everyday.
