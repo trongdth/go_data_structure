@@ -1,6 +1,10 @@
 package main
 
-import "log"
+import (
+	"fmt"
+	"log"
+	"strings"
+)
 
 // DLLNode : double linkedin list node
 type DLLNode struct {
@@ -70,6 +74,20 @@ func DDLInsertNodeAtPos(head **DLLNode, pos int, data int) {
 	}
 }
 
+func printNode(head **DLLNode) {
+	var (
+		p       *DLLNode
+		strNode string
+	)
+	p = *head
+	for p != nil {
+		strNode = fmt.Sprintf("%s %d", strNode, p.data)
+		p = p.next
+	}
+
+	log.Println(strings.TrimSpace(strNode))
+}
+
 func main() {
 	var head *DLLNode
 	head = &DLLNode{
@@ -83,6 +101,7 @@ func main() {
 	count := ListLength(head)
 	log.Println(count)
 
+	printNode(&head)
 }
 
 func buildNodeList(head **DLLNode) {
