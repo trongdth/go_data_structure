@@ -74,6 +74,50 @@ func DDLInsertNodeAtPos(head **DLLNode, pos int, data int) {
 	}
 }
 
+// DDLDeleteNode : delete node at pos
+//
+// params: [head], [pos]
+func DDLDeleteNode(head **DLLNode, pos int) {
+
+	var (
+		p *DLLNode
+		q *DLLNode
+		k int
+	)
+
+	if head == nil {
+		return
+	}
+
+	if pos == 0 {
+		*head = (*head).next
+	}
+
+	if *head != nil {
+		(*head).prev = nil
+		p = nil
+	}
+
+	p = *head
+	for k < pos && p.next != nil {
+		q = p
+		p = p.next
+		k++
+	}
+
+	if k < pos {
+		log.Println("this pos not found")
+	} else {
+
+		if p != nil {
+
+		} else {
+
+		}
+	}
+
+}
+
 func printNode(head **DLLNode) {
 	var (
 		p       *DLLNode
@@ -102,6 +146,9 @@ func main() {
 	log.Println(count)
 
 	printNode(&head)
+
+	// Delete node
+	DDLDeleteNode(&head, 3)
 }
 
 func buildNodeList(head **DLLNode) {
