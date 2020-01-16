@@ -91,28 +91,28 @@ func DDLDeleteNode(head **DLLNode, pos int) {
 
 	if pos == 0 {
 		*head = (*head).next
-	}
-
-	if *head != nil {
-		(*head).prev = nil
-		p = nil
+		if *head != nil {
+			(*head).prev = nil
+			p = nil
+			return
+		}
 	}
 
 	p = *head
 	for k < pos && p.next != nil {
-		q = p
 		p = p.next
 		k++
 	}
 
 	if k < pos {
 		log.Println("this pos not found")
+
 	} else {
+		q = p.prev
+		q.next = p.next
 
-		if p != nil {
-
-		} else {
-
+		if p.next != nil {
+			p.next.prev = q
 		}
 	}
 
@@ -149,6 +149,7 @@ func main() {
 
 	// Delete node
 	DDLDeleteNode(&head, 3)
+	printNode(&head)
 }
 
 func buildNodeList(head **DLLNode) {
