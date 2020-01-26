@@ -8,3 +8,7 @@ Two styles of concurrency exist: deterministic (well-defined ordering) and non-d
 
 `3. Semaphore`
 - A semaphore is a signaling mechanism, and a thread that is waiting on a semaphore can be signaled by another thread.
+
+`4. Fan in - fan out`
+- Fan in: multi channels write the same channel
+- Fan out: multi funcs read the same channel until it's closed
