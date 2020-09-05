@@ -1,4 +1,4 @@
-package main
+package array
 
 import (
 	"testing"
@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestCase1(t *testing.T) {
+func TestCaseArr3Sum(t *testing.T) {
 	assert := assert.New(t)
 
 	array := []int{12, 3, 1, 2, -6, 5, -8, 6}

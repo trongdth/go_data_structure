@@ -1,6 +1,8 @@
-package main
+package array
 
-import "sort"
+import (
+	"sort"
+)
 
 // Write a function that takes in a non-empty array of distinct integers and an
 // integer representing a target sum. The function should find all triplets in
@@ -21,14 +23,31 @@ func ThreeNumberSum(array []int, target int) [][]int {
 
 	sort.Ints(array)
 	result := make([][]int, 0)
-	for i := 0; i < len(array); i++ {
+	var value, left, right int
+	for i := 0; i < len(array)-2; i++ {
+		value = array[i]
+		left = i + 1
+		right = len(array) - 1
+		for left < right {
+			sum := value + array[left] + array[right]
 
-		for j := i + 1; j < len(array)-1; j++ {
+			if sum == target {
+				result = append(result, []int{value, array[left], array[right]})
+				left++
+			} else {
+				if sum < target {
 
-			if array[i]+array[j]+array[j+1] == target {
+					if array[left+1] > array[left] {
+						left++
+					}
 
-				r := []int{array[i], array[j], array[j+1]}
-				result = append(result, r)
+				} else if sum > target {
+
+					if array[right-1] < array[right] {
+						right--
+					}
+
+				}
 			}
 
 		}
