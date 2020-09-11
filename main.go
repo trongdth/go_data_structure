@@ -7,6 +7,6 @@ import (
 )
 
 func main() {
-	output := array.ThreeNumberSum([]int{12, 3, 1, 2, -6, 5, -8, 6}, 0)
+	output := array.SmallestDifference([]int{-1, 5, 10, 20, 28, 3}, []int{26, 134, 135, 15, 17})
 	log.Println(output)
 }
