@@ -1,6 +1,7 @@
 package array
 
 import (
+	"math"
 	"sort"
 )
 
@@ -25,8 +26,8 @@ func Abs(x int64) int64 {
 	return x
 }
 
-// SmallestDifference : array1, array2
-func SmallestDifference(array1, array2 []int) []int {
+// SmallestDifferenceSol1 : array1, array2
+func SmallestDifferenceSol1(array1, array2 []int) []int {
 	sort.Ints(array1)
 	sort.Ints(array2)
 
@@ -34,7 +35,7 @@ func SmallestDifference(array1, array2 []int) []int {
 	var first, second, j int
 	var smallest int64
 
-	smallest = -1
+	smallest = math.MaxInt64
 	for i := 0; i < len(array1); i++ {
 		first = array1[i]
 
@@ -43,7 +44,7 @@ func SmallestDifference(array1, array2 []int) []int {
 			second = array2[j]
 			value := Abs(int64(first - second))
 
-			if value < smallest || smallest == -1 {
+			if value < smallest {
 				smallest = value
 				result = []int{first, second}
 			}
@@ -54,4 +55,12 @@ func SmallestDifference(array1, array2 []int) []int {
 	}
 
 	return result
+}
+
+// SmallestDifferenceSol2 : array1, array2
+func SmallestDifferenceSol2(array1, array2 []int) []int {
+	sort.Ints(array1)
+	sort.Ints(array2)
+
+	return nil
 }

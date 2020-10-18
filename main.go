@@ -7,6 +7,6 @@ import (
 )
 
 func main() {
-	output := array.SmallestDifference([]int{-1, 5, 10, 20, 28, 3}, []int{26, 134, 135, 15, 17})
+	output := array.IsMonotonic([]int{-1, 5, 10, 20, 28, 3})
 	log.Println(output)
 }
