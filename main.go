@@ -1,12 +1,12 @@
 package main
 
 import (
-	"log"
+	"fmt"
 
 	"github.com/trongdth/go_practise/array"
 )
 
 func main() {
-	output := array.IsMonotonic([]int{-1, 5, 10, 20, 28, 3})
-	log.Println(output)
+	output := array.SpiralTraverse([][]int{{1, 2, 3, 4}, {10, 11, 12, 5}, {9, 8, 7, 6}})
+	fmt.Println(output)
 }
