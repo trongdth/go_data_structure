@@ -7,6 +7,6 @@ import (
 )
 
 func main() {
-	output := array.SpiralTraverse([][]int{{1, 2, 3, 4}, {10, 11, 12, 5}, {9, 8, 7, 6}})
+	output := array.LongestPeak([]int{1, 2, 3, 3, 4, 0, 10, 6, 5, -1, -3, 2, 3})
 	fmt.Println(output)
 }
